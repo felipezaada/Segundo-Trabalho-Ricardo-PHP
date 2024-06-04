@@ -37,7 +37,7 @@ class Usuario
 
         $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nome' => $this->nome, 'email' => $this->email, 'senha' => $this->senha]);
+        $stmt->execute(['nome' => $this->nome, 'email' => $this->email, 'senha' => password_hash($this->senha, PASSWORD_DEFAULT)]);
 
         $lastInsertId = $pdo->lastInsertId();
 
@@ -63,7 +63,7 @@ class Usuario
         $stmt->execute(['email' => $this->email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($usuario && $this->senha == $usuario['senha']) {
+        if ($usuario && password_verify($this->senha, $usuario['senha'])) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
