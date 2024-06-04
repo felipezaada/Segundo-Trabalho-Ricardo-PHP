@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 04/06/2024 às 02:35
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Host: localhost
+-- Tempo de geração: 05/06/2024 às 01:26
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,16 +88,8 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `senha` varchar(50) NOT NULL
+  `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES
-(15, 'Maria', 'Maria@gmail.com', '1428'),
-(16, 'Charisse', 'Charisse@gmail.com', '1428');
 
 --
 -- Índices para tabelas despejadas
@@ -135,13 +127,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `carrinho`
 --
 ALTER TABLE `carrinho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=452;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=460;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
@@ -153,7 +145,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
