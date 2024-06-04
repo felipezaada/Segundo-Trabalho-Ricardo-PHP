@@ -117,6 +117,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             width: 100%;
         }
 
+        h3{
+            color: red;
+            text-align: center;
+            font-size: 1em;
+            padding: 30px;
+        }
+
         th,
         td {
             border-bottom: 1px solid #ddd;
@@ -154,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>Preço</th>
                     <th>Quantidade</th>
                     <th>Total</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -193,6 +201,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
                 <tr>
                     <th>Adicione ao seu carrinho</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <td><?php echo $produto['nome']; ?></td>
                 <td><?php echo "R$" . number_format($produto['valor'], 2, ',', '.'); ?></td>
@@ -220,10 +232,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="post" class="d-inline-block">
                 <input type="hidden" name="quantidade" value="<?php echo $quantidade; ?>">
                 <input type="hidden" name="atualizar" value="3">
-                <input type="submit" class="btn btn-segundary" value="Atualizar">
+                <input type="submit" class="btn btn-segundary" value="Atualizar/Inserir">
             </form>
         </div>
-    </div>
+    </div> 
+
+    <h3>Utilize o botão atualizar para inserir os itens no carrinho.</h3>
 
 </body>
 
