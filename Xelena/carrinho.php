@@ -42,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($produto['nome'])) {
         if (isset($_POST['atualizar'])) {
+            if (!isset($_SESSION['id'])) {
+                header('Location: registro.html');
+            } else {
             $nome = $_SESSION['nome'];
             $email = $_SESSION['email'];
             $valortotal = $total;
@@ -56,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute();
 
             header('Location: ' . $_SERVER['REQUEST_URI']);
+            }
         }
     }
 
