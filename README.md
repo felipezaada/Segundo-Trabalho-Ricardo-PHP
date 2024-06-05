@@ -32,7 +32,7 @@ Para que o projeto funcione corretamente, é necessário criar um banco de dados
    - `id` (auto increment, int)
    - `nome` (varchar 50)
    - `email` (varchar 50)
-   - `senha` (varchar 50)
+   - `senha` (varchar 100)
 
 5. **Tabela `produtos`**:  
    Insira os seguintes dados:
