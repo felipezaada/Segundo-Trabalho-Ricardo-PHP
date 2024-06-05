@@ -42,23 +42,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($produto['nome'])) {
         if (isset($_POST['atualizar'])) {
-            if (!isset($_SESSION['id'])) {
-                header('Location: registro.html');
-            } else {
-            $nome = $_SESSION['nome'];
-            $email = $_SESSION['email'];
-            $valortotal = $total;
+            if (isset($_SESSION['id'])) {
+                $nome = $_SESSION['nome'];
+                $email = $_SESSION['email'];
+                $valortotal = $total;
 
-            $sql = "INSERT INTO carrinho (nome_cliente, email_cliente, produto_pedido, quantidade, valor_pedido) VALUES (:nome, :email, :produto, :quantidade, :valortotal)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':produto', $produto['nome']);
-            $stmt->bindParam(':quantidade', $quantidade);
-            $stmt->bindParam(':valortotal', $valortotal);
-            $stmt->execute();
+                $sql = "INSERT INTO carrinho (nome_cliente, email_cliente, produto_pedido, quantidade, valor_pedido) VALUES (:nome, :email, :produto, :quantidade, :valortotal)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':nome', $nome);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':produto', $produto['nome']);
+                $stmt->bindParam(':quantidade', $quantidade);
+                $stmt->bindParam(':valortotal', $valortotal);
+                $stmt->execute();
 
-            header('Location: ' . $_SERVER['REQUEST_URI']);
+                header('Location: ' . $_SERVER['REQUEST_URI']);
             }
         }
     }
@@ -66,8 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['continuar_comprando'])) {
         if (isset($_SESSION['id'])) {
             header('Location: menu.php');
-        } else {
-            header('Location: login.html');
         }
     } else if (isset($_POST['finalizar_compra'])) {
         if (isset($_SESSION['id'])) {
